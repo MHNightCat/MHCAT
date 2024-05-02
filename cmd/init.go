@@ -4,12 +4,11 @@ import (
 	"os"
 
 	"github.com/charmbracelet/log"
-	"github.com/nicksnyder/go-i18n/v2/i18n"
 	"github.com/pelletier/go-toml/v2"
-	"golang.org/x/text/language"
-	"gopkg.in/yaml.v3"
+	"github.com/kataras/i18n"
 )
 
+var I18n *i18n.I18n
 
 type MHCATConfigType struct {
 	DiscordToken string `toml:"discord_token"`
@@ -22,19 +21,25 @@ func initBot() {
 	
 	if err != nil {
 		log.Error("Fail to load MHCAT config file,", err)
+		return
 	}
 
 	err = toml.Unmarshal(fileData, &MHCATConfig)
 
 	if err != nil {
 		log.Error("Fail to unmarshal mhcat config file,", err)
+		return
 	}
 }
 
 func initLocales() {
-	bundle := i18n.NewBundle(language.English)
-	bundle.RegisterUnmarshalFunc("yml", yaml.Unmarshal)
-
-	bundle.MustLoadMessageFile("locales/en.json")
+	var err error
+	I18n, err = i18n.New(i18n.Glob("./locales/*/*"), "en", "el-GR", "zh-CN")
 	
+	if err != nil {
+		log.Error("Fail to load locales file", err)
+		return
+	}
+	test := I18n.Tr("en", "slash_command.locales.options.language.name")
+	log.Info(test)
 }

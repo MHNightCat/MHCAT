@@ -1,7 +1,0 @@
-slashCommand:
-  name: test
-  description: test
-  options:
-    language: test
-    name: test
-    description: test

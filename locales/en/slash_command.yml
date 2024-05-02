@@ -1,0 +1,7 @@
+locales:
+  name: set-language
+  description: Set your preferred language for MHCAT
+  options:
+    language:
+      name: language
+      description: Language to change to

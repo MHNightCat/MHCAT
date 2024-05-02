@@ -13,7 +13,7 @@ import (
 
 func Start() {
 	initBot()
-
+	initLocales()
 	var err error
 
 	Mgr, err := shards.New("Bot " + MHCATConfig.DiscordToken)

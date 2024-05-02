@@ -2,10 +2,16 @@ module github.com/MHNightCat/mhcat
 
 go 1.22.2
 
-require github.com/bwmarrin/discordgo v0.28.1
+require (
+	github.com/bwmarrin/discordgo v0.28.1
+	github.com/kataras/i18n v0.0.8
+)
 
 require (
+	github.com/BurntSushi/toml v1.3.2 // indirect
+	golang.org/x/net v0.9.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
+	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
@@ -20,7 +26,6 @@ require (
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/muesli/reflow v0.3.0 // indirect
 	github.com/muesli/termenv v0.15.2 // indirect
-	github.com/nicksnyder/go-i18n/v2 v2.4.0
 	github.com/pelletier/go-toml/v2 v2.2.2
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/servusdei2018/shards/v2 v2.4.0
